@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> List 0f Student</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-row>
+    <ion-col class="ion-text-start">
+      <ion-button (click)="gotoAddStudent()">+ AddStudent</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h4>StudentId</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>StudentName</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>StudentAge</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>StudentTel</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>Info</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>Edit</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>Delete</h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let s of studentData">
+    <ion-col>
+      <h4>{{ s.studentId }}</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>{{ s.studentName }}</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>{{ s.studentAge }}</h4>
+    </ion-col>
+
+    <ion-col>
+      <h4>{{ s.studentTel }}</h4>
+    </ion-col>
+
+    <ion-col>
+      <ion-button (click)="gotoInfoStudent(s.studentId)">
+        <ion-icon slot="icon-only" name="eye"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button color="secondary" (click)="gotoEditStudent(s.studentId)">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
