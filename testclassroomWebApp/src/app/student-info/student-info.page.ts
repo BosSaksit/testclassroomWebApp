@@ -12,8 +12,15 @@ export class StudentInfoPage implements OnInit {
   getStatus:string;
   getid:string
   datastudent:student;
-  
+  data = {
+    "studentId":null,
+    "studentName":null,
+    "studentAge":null,
+    "studentTel":null
+  }
 
+  studentdata:student;
+  
   constructor(public activate:ActivatedRoute, public callapi :CallapiService) { 
     this.getStatus = this.activate.snapshot.paramMap.get('status');
     console.log(this.getStatus);
@@ -46,6 +53,14 @@ export class StudentInfoPage implements OnInit {
       console.log(it);
       this.datastudent = it;
       this.getStatus = "Info"
+    });
+  }
+
+  adddataStudent(){
+    console.log(this.data);
+    
+    this.callapi.addDataStudent(this.data).subscribe(it =>{
+      console.log(it);
     });
   }
 

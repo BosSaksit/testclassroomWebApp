@@ -42,35 +42,35 @@
 
   <ion-row *ngFor="let s of studentData">
     <ion-col>
-      <h4>{{ s.studentId }}</h4>
+      <ion-label>{{ s.studentId }}</ion-label>
     </ion-col>
 
     <ion-col>
-      <h4>{{ s.studentName }}</h4>
+      <ion-label>{{ s.studentName }}</ion-label>
     </ion-col>
 
     <ion-col>
-      <h4>{{ s.studentAge }}</h4>
+      <ion-label>{{ s.studentAge }}</ion-label>
     </ion-col>
 
     <ion-col>
-      <h4>{{ s.studentTel }}</h4>
+      <ion-label>{{ s.studentTel }}</ion-label>
     </ion-col>
 
     <ion-col>
-      <ion-button (click)="gotoInfoStudent(s.studentId)">
+      <ion-button size="small" (click)="gotoInfoStudent(s.studentId)">
         <ion-icon slot="icon-only" name="eye"></ion-icon>
       </ion-button>
     </ion-col>
 
     <ion-col>
-      <ion-button color="secondary" (click)="gotoEditStudent(s.studentId)">
+      <ion-button size="small" color="secondary" (click)="gotoEditStudent(s.studentId)">
         <ion-icon slot="icon-only" name="create"></ion-icon>
       </ion-button>
     </ion-col>
 
     <ion-col>
-      <ion-button color="danger">
+      <ion-button size="small" color="danger" (click)="delStudentByid(s.studentId)">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>
     </ion-col>

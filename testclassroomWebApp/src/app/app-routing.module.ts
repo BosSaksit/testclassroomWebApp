@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'student-info',
     loadChildren: () => import('./student-info/student-info.module').then( m => m.StudentInfoPageModule)
+  },
+  {
+    path: 'teacher-info',
+    loadChildren: () => import('./teacher-info/teacher-info.module').then( m => m.TeacherInfoPageModule)
+  },
+  {
+    path: 'classroom-info',
+    loadChildren: () => import('./classroom-info/classroom-info.module').then( m => m.ClassroomInfoPageModule)
   }
 ];
 

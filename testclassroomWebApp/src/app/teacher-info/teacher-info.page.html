@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>teacherInfo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="getStatus == '10'">
+<ion-row class="ion-text-center">
+  <ion-col></ion-col>
+  <ion-col>
+    <ion-label>AddDataTeacher</ion-label>
+  </ion-col>
+  <ion-col></ion-col>
+</ion-row>
+
+<ion-row *ngIf="getidTeacher == null">
+  <ion-col size="2"></ion-col>
+  <ion-col class="ion-text-center">
+    <ion-list>
+      <ion-item>
+        <ion-label>TeacherName :</ion-label>
+        <ion-input [(ngModel)]="data.teacherName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>TeacherTel : </ion-label>
+        <ion-input [(ngModel)]="data.teacherTel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>SubjectTaught : </ion-label>
+        <ion-input [(ngModel)]="data.subjectTaught"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="success" (click)="adddataTeacher()">Save</ion-button>
+  </ion-col>
+  <ion-col size="2"></ion-col>
+</ion-row>
+</ion-content>
+
+<ion-content *ngIf="getStatus != '1'">
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <diV *ngIf="getStatus == 'false'">
+        <ion-label>EditDataTeacher</ion-label>
+      </diV>
+      <div *ngIf="getStatus == 'true'">
+        <ion-label>InfoDataTeacher</ion-label>
+      </div>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row> 
+
+  <ion-row *ngIf="dataTeacher != null">
+    <ion-col size="2"></ion-col>
+    <ion-col class="ion-text-center">
+     
+      <ion-list>
+        <ion-item>
+          <ion-label>TeacherId :</ion-label>
+          <ion-input [readonly]="true" [(ngModel)]="dataTeacher.teacherId"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>TeacherName :</ion-label>
+          <ion-input [readonly]="getStatus" [(ngModel)]="dataTeacher.teacherName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>TeacherTel : </ion-label>
+          <ion-input [readonly]="getStatus" [(ngModel)]="dataTeacher.teacherTel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>SubjectTaught : </ion-label>
+          <ion-input [readonly]="getStatus" [(ngModel)]="dataTeacher.subjectTaught"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button *ngIf="getStatus == 'false'" color="success" (click)="changeStatus()">Save</ion-button>
+      <ion-button *ngIf="getStatus == 'true'" color="success" (click)="changeStatus()">Edit</ion-button>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
+</ion-content>
+

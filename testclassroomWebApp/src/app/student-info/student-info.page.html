@@ -8,7 +8,35 @@
 </ion-header>
 
 <ion-content *ngIf="getStatus == 'Add'">
-  <ion-label>Add Data Student</ion-label>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col class="ion-text-center">
+      <ion-label>Add Data Student</ion-label>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="getid == null">
+    <ion-col size="2"></ion-col>
+    <ion-col class="ion-text-center">
+      <ion-list>
+        <ion-item>
+          <ion-label>StudentName :</ion-label>
+          <ion-input [(ngModel)]="data.studentName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>StudentAge : </ion-label>
+          <ion-input type="number" [(ngModel)]="data.studentAge"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>StudentTel : </ion-label>
+          <ion-input [(ngModel)]="data.studentTel"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button color="success" (click)="adddataStudent()">Save</ion-button>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-content *ngIf="getStatus == 'Edit'">
@@ -35,7 +63,7 @@
         </ion-item>
         <ion-item>
           <ion-label>StudentAge : </ion-label>
-          <ion-input [(ngModel)]="datastudent.studentAge"></ion-input>
+          <ion-input type="number" [(ngModel)]="datastudent.studentAge"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>StudentTel : </ion-label>

@@ -45,4 +45,10 @@ export class StudentPage implements OnInit {
     this.router.navigate(['/student-info',{status:this.statusContent, idstudent:id}]);
   }
 
+  delStudentByid(id){
+    this.callapi.deleteDataStudent(id).subscribe(it => {
+      this.ionViewWillEnter();
+    });
+  }
+
 }
